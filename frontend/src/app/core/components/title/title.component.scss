@@ -1,0 +1,24 @@
+.title {
+    font-size: 100px;
+    font-weight: 100;
+    color: #fff;
+    margin: auto !important;
+    text-align: center;
+
+    &-container {
+        max-width: 1200px;
+        height: 200px;
+        margin: 50px auto 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-icon {
+        height: 100px;
+        width: 100px;
+        filter: invert(94%) sepia(93%) saturate(0%) hue-rotate(249deg) brightness(106%) contrast(102%);
+        margin-bottom: -18px;
+        margin-right: -10px;
+    }
+}
