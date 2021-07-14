@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    air-labs-frontend:
+        image: air-labs-frontend:latest
+        environment: 
+            port: 4200
+            PROXY_API: https://air-labs-backend:8080/
+        ports: 
+            - 4200:4200
+    air-labs-backend:
+        image: air-labs-backend:latest
+        ports:
+            - 8080:8080
