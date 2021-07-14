@@ -16,6 +16,8 @@ FROM openjdk:11-jre
 
 WORKDIR /air-labs-challenge
 
+EXPOSE 8080
+
 COPY --from=maven air-labs-challenge/target/AirLabsChallenge-0.0.1-SNAPSHOT.jar /app.jar
 
 ENTRYPOINT ["java", "-jar", "/app.jar"]
