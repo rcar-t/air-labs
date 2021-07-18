@@ -17,6 +17,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.rhonda.AirLabsChallenge.dto.TopWaypoints;
 import com.rhonda.AirLabsChallenge.dto.WaypointCount;
+import com.rhonda.AirLabsChallenge.exception.EntityNotFoundException;
 import com.rhonda.AirLabsChallenge.model.Airport;
 import com.rhonda.AirLabsChallenge.model.SID;
 import com.rhonda.AirLabsChallenge.model.Waypoint;
@@ -31,19 +32,38 @@ public class AirportService implements AirportServiceInterface{
 	@Override
 	public List<Airport> getAllAirports() 
 			throws JsonParseException, JsonMappingException, IOException, InterruptedException {
-		return airportRepository.getAllAirports();
+		
+		List<Airport> airportList = airportRepository.getAllAirports();
+		
+		if (null != airportList && airportList.size() > 0) {
+			return airportList;
+		} else {
+			throw new EntityNotFoundException("Airport List cannot be retrieved");
+		}
 	}
 	
 	@Override
 	public List<SID> getSidsByAirport(String airportId) 
 			throws JsonParseException, JsonMappingException, IOException, InterruptedException {
-		return airportRepository.getSidsByAirport(airportId);
+		List<SID> sidList = airportRepository.getSidsByAirport(airportId);
+		
+		if (null != sidList && sidList.size() > 0) {
+			return sidList;
+		} else {
+			throw new EntityNotFoundException("SID List cannot be retrieved for airport id: " + airportId);
+		}
 	}
 	
 	@Override
 	public List<SID> getStarsByAirport(String airportId) 
 			throws JsonParseException, JsonMappingException, IOException, InterruptedException {
-		return airportRepository.getStarsByAirport(airportId);
+		List<SID> starList = airportRepository.getStarsByAirport(airportId);
+		
+		if (null != starList && starList.size() > 0) {
+			return starList;
+		} else {
+			throw new EntityNotFoundException("STAR List cannot be retrieved for airport id: " + airportId);
+		}
 	}
 	
 	@Override

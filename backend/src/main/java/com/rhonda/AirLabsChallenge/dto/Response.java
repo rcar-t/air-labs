@@ -7,7 +7,6 @@ public class Response<T> {
 	private Status status;
 	private T body; 
 	private Date timestamp;
-	private ResponseError error;
 	
 	
 	public Response(Status status, T body) {
@@ -33,12 +32,6 @@ public class Response<T> {
 	}
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
-	}
-	public ResponseError getError() {
-		return error;
-	}
-	public void setError(ResponseError error) {
-		this.error = error;
 	}
 
 

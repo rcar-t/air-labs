@@ -45,18 +45,16 @@ public class AirportRepository {
 		ObjectMapper objectMapper = new ObjectMapper();
 		TypeReference<List<Airport>> type = new TypeReference<List<Airport>>(){};
 		
-		List<Airport> airportLst = objectMapper.readValue(get(String.format("%s/airac/airports", url)), type);
-		
-		return airportLst;
+		String response = get(String.format("%s/airac/airports", url));
+		return (null == response) ? null : objectMapper.readValue(response, type);
 	}
 	
 	public List<SID> getSidsByAirport(String airportId) throws JsonMappingException, JsonProcessingException, IOException, InterruptedException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		TypeReference<List<SID>> type = new TypeReference<List<SID>>(){};
 		
-		List<SID> sidLst = objectMapper.readValue(get(String.format("%s/airac/sids/airport/%s", url, airportId)), type);
-		
-		return sidLst;
+		String response = get(String.format("%s/airac/sids/airport/%s", url, airportId));
+		return (null == response) ? null : objectMapper.readValue(response, type);
 	}
 	
 	public List<SID> getStarsByAirport(String airportId) 
@@ -64,9 +62,8 @@ public class AirportRepository {
 		ObjectMapper objectMapper = new ObjectMapper();
 		TypeReference<List<SID>> type = new TypeReference<List<SID>>(){};
 		
-		List<SID> starLst = objectMapper.readValue(get(String.format("%s/airac/stars/airport/%s", url, airportId)), type);
-		
-		return starLst;
+		String response = get(String.format("%s/airac/stars/airport/%s", url, airportId));
+		return (null == response) ? null : objectMapper.readValue(response, type);
 	}
 	
 	private String get(String uri) throws IOException, InterruptedException {
@@ -76,6 +73,7 @@ public class AirportRepository {
 			.header("api-key", AirportRepository.apiKey)
 			.build();
 		HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-		return response.body();
+		
+		return (response.body().contains("<")) ? null : response.body();
 	}
 }
