@@ -1,5 +1,4 @@
 {
-    "taskDefinition": {
         "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:222769281224:task-definition/air-labs-backend-task-definition:1",
         "containerDefinitions": [
             {
@@ -64,6 +63,5 @@
         ],
         "cpu": "512",
         "memory": "512"
-    }
 }
 
