@@ -1,4 +1,7 @@
 <div class="container">
-    <app-tabs></app-tabs>
+    <div class="header"><h1>airports</h1></div>
+    <ng-container *ngFor="let airport of airports">
+        <div class="airport">{{ airport.name }}</div>
+    </ng-container>
 </div>
 

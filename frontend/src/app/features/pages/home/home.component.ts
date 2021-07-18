@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Airport } from 'src/app/core/models/Airport';
+import { HomeService } from 'src/app/core/services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  private subscriptions: Subscription;
+  public airports: Array<Airport>;
+  
+  constructor(
+    private homeService: HomeService,
+  ) { 
+    this.subscriptions = new Subscription();
+    this.airports = [];
+  }
 
   ngOnInit(): void {
+    this.getAllAirports();
+  }
+
+  getAllAirports(): void {
+    this.subscriptions.add(
+      this.homeService
+        .getAllAirports()
+        .subscribe((airports) => {
+          this.airports = airports;
+        })
+    )
   }
 
 }

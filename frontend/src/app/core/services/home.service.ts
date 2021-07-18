@@ -1,10 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment as env } from 'src/environments/environment'
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { Airport } from '../models/Airport';
+import { Response } from '../models/response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
-  constructor(private http: HttpClient) { }
+  private apiUrl: string;
+
+  constructor(private http: HttpClient) { 
+    this.apiUrl = env.apiUrl+"/api";
+  }
+
+  getAllAirports(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}`)
+    .pipe(
+      map(
+        (response) => {
+          return response.body;
+        }
+      ),
+      catchError(
+        (error)=> {
+          return throwError(error);
+        }
+      )
+    );
+  }
 }
