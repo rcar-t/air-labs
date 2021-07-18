@@ -3,6 +3,7 @@ com/rhonda/AirLabsChallenge/model/SID.class
 com/rhonda/AirLabsChallenge/service/AirportService.class
 com/rhonda/AirLabsChallenge/exception/CustomizedResponseEntityExceptionHandler.class
 com/rhonda/AirLabsChallenge/model/Waypoint.class
+com/rhonda/AirLabsChallenge/exception/EntityNotFoundException.class
 com/rhonda/AirLabsChallenge/repository/AirportRepository.class
 com/rhonda/AirLabsChallenge/security/CustomSecurityConfigurationAdapter.class
 com/rhonda/AirLabsChallenge/repository/AirportRepository$2.class
