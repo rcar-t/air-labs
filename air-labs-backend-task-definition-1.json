@@ -23,12 +23,11 @@
         ],
         "family": "air-labs-backend-task-definition",
         "executionRoleArn": "arn:aws:iam::222769281224:role/ecsTaskExecutionRole",
-        "revision": 1,
         "placementConstraints": [],
         "requiresCompatibilities": [
             "EC2"
         ],
-        "cpu": "1024",
-        "memory": "1024"
+        "cpu": "512",
+        "memory": "512"
 }
 
