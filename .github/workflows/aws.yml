@@ -62,12 +62,12 @@ jobs:
         # be deployed to ECS.
         
         #backend 
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./backend
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:backend ./backend
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:backend
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:backend"
 
         #frontend 
-        # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./frontend
+        # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:frontend ./frontend
         # docker push $ECR_REGISTRY/$ECR_REPOSITORY:frontend
         # echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:frontend"
 
