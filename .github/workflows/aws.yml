@@ -24,8 +24,8 @@
 #    and best practices on handling the access key credentials.
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ main ]
 
 name: Deploy to Amazon ECS
 
@@ -60,9 +60,16 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
+        
+        #backend 
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./backend
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:backend
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:backend"
+
+        #frontend 
+        # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./frontend
+        # docker push $ECR_REGISTRY/$ECR_REPOSITORY:frontend
+        # echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:frontend"
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
