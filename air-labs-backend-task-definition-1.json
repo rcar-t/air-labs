@@ -1,10 +1,8 @@
 {
-        "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:222769281224:task-definition/air-labs-backend-task-definition:1",
         "containerDefinitions": [
             {
                 "name": "air-labs-backend",
                 "image": "222769281224.dkr.ecr.ap-southeast-1.amazonaws.com/air-labs-challenge:backend",
-                "cpu": 0,
                 "portMappings": [
                     {
                         "containerPort": 80,
@@ -20,48 +18,17 @@
                 "essential": true,
                 "environment": [],
                 "mountPoints": [],
-                "volumesFrom": [],
-                "logConfiguration": {
-                    "logDriver": "awslogs",
-                    "options": {
-                        "awslogs-group": "/ecs/air-labs-backend-task-definition",
-                        "awslogs-region": "ap-southeast-1",
-                        "awslogs-stream-prefix": "ecs"
-                    }
-                }
+                "volumesFrom": []
             }
         ],
         "family": "air-labs-backend-task-definition",
         "executionRoleArn": "arn:aws:iam::222769281224:role/ecsTaskExecutionRole",
         "revision": 1,
-        "volumes": [],
-        "status": "ACTIVE",
-        "requiresAttributes": [
-            {
-                "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-            },
-            {
-                "name": "ecs.capability.execution-role-awslogs"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.ecr-auth"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-            },
-            {
-                "name": "ecs.capability.execution-role-ecr-pull"
-            }
-        ],
         "placementConstraints": [],
-        "compatibilities": [
-            "EXTERNAL",
-            "EC2"
-        ],
         "requiresCompatibilities": [
             "EC2"
         ],
-        "cpu": "512",
-        "memory": "512"
+        "cpu": "1024",
+        "memory": "1024"
 }
 
