@@ -1,7 +1,9 @@
 <div class="container">
     <div class="header"><h1>airports</h1></div>
     <ng-container *ngFor="let airport of airports">
-        <div class="airport">{{ airport.name }}</div>
+        <div class="airport" (click)="getWaypoints(airport.icao)">
+            <p class="airport-name">{{ airport.name }}</p>
+        </div>
     </ng-container>
 </div>
 

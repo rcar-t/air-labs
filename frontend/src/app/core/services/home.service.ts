@@ -18,18 +18,50 @@ export class HomeService {
   }
 
   getAllAirports(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}`)
-    .pipe(
-      map(
-        (response) => {
-          return response.body;
-        }
-      ),
-      catchError(
-        (error)=> {
-          return throwError(error);
-        }
-      )
-    );
+    return this.http.get<any>(`${this.apiUrl}/airports`)
+      .pipe(
+        map(
+          (response) => {
+            return response.body;
+          }
+        ),
+        catchError(
+          (error)=> {
+            return throwError(error);
+          }
+        )
+      );
+  }
+
+  getTopWaypointsBySid(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/topWaypoints/sid/${id}`)
+      .pipe(
+        map(
+          (response) => {
+            return response.topWaypoints;
+          }
+        ),
+        catchError(
+          (error)=> {
+            return throwError(error);
+          }
+        )
+      );
+  }
+
+  getTopWaypointsByStar(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/topWaypoints/star/${id}`)
+      .pipe(
+        map(
+          (response) => {
+            return response.topWaypoints;
+          }
+        ),
+        catchError(
+          (error)=> {
+            return throwError(error);
+          }
+        )
+      );
   }
 }

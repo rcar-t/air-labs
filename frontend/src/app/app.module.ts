@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { TabsComponent } from './features/components/tabs/tabs.component';
 import { HomeComponent } from './features/pages/home/home.component';
 import { SidComponent } from './features/pages/home/sid/sid.component';
 import { StarComponent } from './features/pages/home/star/star.component';
+import { WaypointComponent } from './features/pages/waypoint/waypoint.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { StarComponent } from './features/pages/home/star/star.component';
     HomeComponent,
     SidComponent,
     StarComponent,
+    WaypointComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatTabsModule
   ],

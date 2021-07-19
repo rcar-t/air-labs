@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Airport } from 'src/app/core/models/Airport';
 import { HomeService } from 'src/app/core/services/home.service';
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   
   constructor(
     private homeService: HomeService,
+    private router: Router
   ) { 
     this.subscriptions = new Subscription();
     this.airports = [];
@@ -30,8 +32,13 @@ export class HomeComponent implements OnInit {
         .getAllAirports()
         .subscribe((airports) => {
           this.airports = airports;
+          console.log(airports);
         })
     )
+  }
+
+  getWaypoints(id: string) {
+    this.router.navigate(['airport', id]);
   }
 
 }

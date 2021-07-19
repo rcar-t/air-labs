@@ -1,4 +1,39 @@
 .container {
     max-width: 1200px;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header {
+    color: #666;
+    text-align: center;
+    flex: 0 0 100%;
+    border-bottom: 1px solid #666;
+}
+
+.airport {
+    background-color: #AD1457;
+    opacity: 60%;
+    padding: 15px 40px;
+    margin: 20px;
+    border-radius: 5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+    
+    &:hover {
+        opacity: 1;
+    }
+
+    &-name {
+        font-size: 14px;
+        letter-spacing: 0.3em;
+        color: white;
+        margin: 0;
+        font-weight: 700;
+    }
 }
