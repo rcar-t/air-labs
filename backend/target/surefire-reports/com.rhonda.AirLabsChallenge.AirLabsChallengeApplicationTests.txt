@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.rhonda.AirLabsChallenge.AirLabsChallengeApplicationTests
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.572 s - in com.rhonda.AirLabsChallenge.AirLabsChallengeApplicationTests
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.57 s - in com.rhonda.AirLabsChallenge.AirLabsChallengeApplicationTests
+>>>>>>> backend

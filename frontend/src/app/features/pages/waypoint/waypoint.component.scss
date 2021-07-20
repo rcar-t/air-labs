@@ -1,4 +1,19 @@
 .container {
     max-width: 1200px;
     margin: auto;
+
+}
+
+.airport {
+    display: flex;
+    justify-content: center;
+
+    &-text {
+        background-color: #666;
+        opacity: 0.3;
+        padding: 5px 20px;
+        border-radius: 5px;
+        color: white;
+        letter-spacing: 0.3em;
+    }
 }

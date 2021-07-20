@@ -38,7 +38,7 @@ export class HomeService {
       .pipe(
         map(
           (response) => {
-            return response.topWaypoints;
+            return response.body.topWaypoints;
           }
         ),
         catchError(
@@ -54,7 +54,7 @@ export class HomeService {
       .pipe(
         map(
           (response) => {
-            return response.topWaypoints;
+            return response.body.topWaypoints;
           }
         ),
         catchError(

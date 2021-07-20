@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    margin: 50px;
+    color: white;
+    width: 50%;
+
+    th, td {
+        padding: 15px 30px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #333;
+    }
+
+    td {
+        background-color: #4c4c4c;
+    }
+}

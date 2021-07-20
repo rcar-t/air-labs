@@ -1,1 +1,19 @@
-<p>star works!</p>
+<div class="container">
+    <table class="table" *ngIf="waypoints; else elseBlock">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let waypoint of waypoints">
+                <tr>
+                    <td>{{ waypoint.name }}</td>
+                    <td>{{ waypoint.count }}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>Top STAR waypoints could not be found for Airport {{ airportId }}</ng-template>
+</div>
