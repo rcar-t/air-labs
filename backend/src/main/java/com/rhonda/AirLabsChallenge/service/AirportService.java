@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +31,8 @@ public class AirportService implements AirportServiceInterface{
 	@Autowired
 	private AirportRepository airportRepository;
 	
+	Logger logger = LoggerFactory.getLogger(AirportService.class);
+	
 	@Override
 	public List<Airport> getAllAirports() 
 			throws JsonParseException, JsonMappingException, IOException, InterruptedException {
@@ -38,6 +42,7 @@ public class AirportService implements AirportServiceInterface{
 		if (null != airportList && airportList.size() > 0) {
 			return airportList;
 		} else {
+			logger.error("Airport List cannot be retrieved");
 			throw new EntityNotFoundException("Airport List cannot be retrieved");
 		}
 	}
@@ -50,6 +55,7 @@ public class AirportService implements AirportServiceInterface{
 		if (null != sidList && sidList.size() > 0) {
 			return sidList;
 		} else {
+			logger.error("SID List cannot be retrieved for airport id: " + airportId);
 			throw new EntityNotFoundException("SID List cannot be retrieved for airport id: " + airportId);
 		}
 	}
@@ -62,6 +68,7 @@ public class AirportService implements AirportServiceInterface{
 		if (null != starList && starList.size() > 0) {
 			return starList;
 		} else {
+			logger.error("STAR List cannot be retrieved for airport id: " + airportId);
 			throw new EntityNotFoundException("STAR List cannot be retrieved for airport id: " + airportId);
 		}
 	}

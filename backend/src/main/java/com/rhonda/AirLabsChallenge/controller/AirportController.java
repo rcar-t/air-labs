@@ -28,6 +28,11 @@ public class AirportController {
 	@Autowired
 	private AirportService airportService; 
 	
+	@GetMapping("/")
+	public String welcome() {
+		return "Hello World";
+	}
+	
 	@GetMapping("/airports")
 	public Response<List<Airport>> getAllAirports() 
 			throws JsonParseException, JsonMappingException, IOException, InterruptedException {

@@ -17,6 +17,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rhonda.AirLabsChallenge.config.ApiConfig;
+import com.rhonda.AirLabsChallenge.exception.EntityNotFoundException;
 import com.rhonda.AirLabsChallenge.model.Airport;
 import com.rhonda.AirLabsChallenge.model.SID;
 
@@ -74,6 +75,12 @@ public class AirportRepository {
 			.build();
 		HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 		
-		return (response.body().contains("<")) ? null : response.body();
+		if (response.statusCode() == 200) {
+			return response.body();
+		} else {
+			throw new EntityNotFoundException(String.format("GET request to %s returned with %d error", uri, response.statusCode()));
+		}
+		
+//		return (response.body().contains("<")) ? null : response.body();
 	}
 }

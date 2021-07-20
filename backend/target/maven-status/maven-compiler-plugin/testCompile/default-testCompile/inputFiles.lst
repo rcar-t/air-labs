@@ -1,2 +1,5 @@
 /home/rhonda/air-labs/backend/src/test/java/com/rhonda/AirLabsChallenge/AirLabsChallengeApplicationTests.java
+/home/rhonda/air-labs/backend/src/test/java/com/rhonda/AirLabsChallenge/service/AirportServiceTest.java
+/home/rhonda/air-labs/backend/src/test/java/com/rhonda/AirLabsChallenge/controller/AirportControllerIntTest.java
+/home/rhonda/air-labs/backend/src/test/java/com/rhonda/AirLabsChallenge/config/HttpRequestTest.java
 /home/rhonda/air-labs/backend/src/test/java/com/rhonda/AirLabsChallenge/repository/AirportRepositoryTest.java
