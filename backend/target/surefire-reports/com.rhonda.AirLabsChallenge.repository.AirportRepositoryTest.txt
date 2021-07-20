@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.rhonda.AirLabsChallenge.repository.AirportRepositoryTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in com.rhonda.AirLabsChallenge.repository.AirportRepositoryTest
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s - in com.rhonda.AirLabsChallenge.repository.AirportRepositoryTest
->>>>>>> backend
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in com.rhonda.AirLabsChallenge.repository.AirportRepositoryTest
