@@ -54,7 +54,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: air-labs-challenge
+        ECR_REPOSITORY: airlabs-backend
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
@@ -62,14 +62,9 @@ jobs:
         # be deployed to ECS.
         
         #backend 
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:backend ./backend
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:backend
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:backend"
-
-        #frontend 
-        # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:frontend ./frontend
-        # docker push $ECR_REGISTRY/$ECR_REPOSITORY:frontend
-        # echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:frontend"
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./backend
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
