@@ -16,18 +16,20 @@
                     }
                 ],
                 "essential": true,
-                "environment": [],
-                "mountPoints": [],
-                "volumesFrom": []
+                "cpu":128,
+                "memory":256,
+                "memoryReservation":128,
+                "linuxParameters" : {
+                    "maxSwap" : 512,
+                    "swappiness" : 50
+                }
             }
         ],
         "family": "air-labs-backend-task-definition",
-        "executionRoleArn": "arn:aws:iam::222769281224:role/ecsTaskExecutionRole",
-        "placementConstraints": [],
         "requiresCompatibilities": [
             "EC2"
         ],
-        "cpu": "512",
+        "cpu": "256",
         "memory": "512"
 }
 
